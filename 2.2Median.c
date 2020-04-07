@@ -10,12 +10,12 @@ int main(){
     int *p;
     p=a;
     double ret;
-    if(len%2==0){//偶数
+    if(len%2==0){//偶数组
         K=len/2; 
         ret=FindKthLargest(p,K,len);
         ret+=FindKthLargest(p,K+1,len);
         printf("%.1f",ret/2);
-    }else{//奇数
+    }else{//奇数组
         K=(len+1)/2; 
         printf("%d",FindKthLargest(p,K,len));
     }
