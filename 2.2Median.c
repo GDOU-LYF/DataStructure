@@ -4,18 +4,22 @@
 int FindKthLargest(int a[],int K,int alen);
 /*基于问题的分解*/
 int main(){
-    int a[]={6,5,9,8,2,1,7,3,4};
+    int a[]={1,3,3,4};
     int K,len;
     len=sizeof(a)/sizeof(int);
-    if(len%2==0){
-        K=len/2; 
-    }else{
-        K=(len+1)/2; 
-    }
-    //sizeof(a)/sizeof(int)取数组长度
     int *p;
     p=a;
-    printf("%d",FindKthLargest(p,K,len));
+    double ret;
+    if(len%2==0){//偶数
+        K=len/2; 
+        ret=FindKthLargest(p,K,len);
+        ret+=FindKthLargest(p,K+1,len);
+        printf("%.1f",ret/2);
+    }else{//奇数
+        K=(len+1)/2; 
+        printf("%d",FindKthLargest(p,K,len));
+    }
+    //sizeof(a)/sizeof(int)取数组长度
     return 0;
 }
 int FindKthLargest(int a[],int K,int alen){//-1表示失败
