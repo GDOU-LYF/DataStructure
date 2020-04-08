@@ -1,10 +1,12 @@
 #include <stdio.h>
 int Fibnoacci1(int n){ //时间复杂度 2N; 空间复杂度 N+1
     //int F0=0,F1=1;
-    if(n<=1){
+    if(n<=2){
         return 1;
+    }else{
+        return Fibnoacci1(n-1)+Fibnoacci1(n-2);
     }
-    return Fibnoacci1(n-1)+Fibnoacci1(n-2);
+    return -1;//Erro
 }
 
 int Fibnoacci2(int n){//时间复杂度 N,空间复杂度 1
