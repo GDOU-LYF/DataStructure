@@ -14,12 +14,13 @@ void Node_Add2(List*plist,int number);
 void Print(List *plist);
 void Node_free(List *plist);
 void Node_Dele(List *plist,int number);
-void Node_Find(List *plist,int number);
+Node* Node_Find(List *plist,int number);
 Node* Reverse(List *plist);
+void Node_insert(List*plist,int Findata,int number);
 
  int main()
  {
-    int a;
+    int a,n;
     List list;
     list.head=NULL;
     scanf("%d",&a);
@@ -28,6 +29,11 @@ Node* Reverse(List *plist);
         scanf("%d",&a);
      }
      //输出链表
+    Print(&list);
+    //指定插入
+    printf("在指定数字后插入:(,)");
+    scanf("%d,%d",&a,&n);
+    Node_insert(&list,a,n);
     Print(&list);
     //逆转
     Reverse(&list);//list.head=Reverse(&list)
@@ -38,9 +44,10 @@ Node* Reverse(List *plist);
  }
 
 void Node_Add(List*plist,int number){//添加结点(尾插)
-            Node *p=(Node*)malloc(sizeof(Node));
+            Node *p=(Node*)malloc(sizeof(Node));//申请一块内存
             p->data=number;
             p->next=NULL;
+            //对那块内存写数据
             Node *last=plist->head;
             if(last){
                 while(last->next){//NULL!=last->next
@@ -60,6 +67,19 @@ void Node_Add2(List*plist,int number){//添加结点(头插)
             p->next=plist->head;
             plist->head=p;
         // return head;
+}
+void Node_insert(List*plist,int Findata,int number){
+            Node *t=(Node*)malloc(sizeof(Node));
+            t->data=number;
+            t->next=NULL;
+
+            Node *p=Node_Find(plist,Findata);
+            if(p){
+                t->next=p->next;
+                p->next=t;
+            }else{
+                printf("erro(NO find)\n");
+            }
 }
 void Print(List *plist){
     Node *p;
@@ -93,19 +113,21 @@ void Node_Dele(List *plist,int number){//删除单结点
         }
     }
 }
-void Node_Find(List *plist,int number){//寻找
+Node* Node_Find(List *plist,int number){//寻找
     Node *p;
-    int isFound=0;
+    //int isFound=0;
     for(p=plist->head;p;p=p->next){
         if(p->data==number){
-            printf("find!\n");
-            isFound=1;
+            //printf("find!\n");
+            //isFound=1;
             break;
         }
     }
-    if(!isFound){
-        printf("NO find!\n");
-    }
+    // if(!isFound){
+    //     printf("NO find!\n");
+    // }
+    return p;
+
 }
 
 Node* Reverse(List *plist){//逆转
