@@ -2,9 +2,12 @@
 #include <stdlib.h>
 
 int FindKthLargest(int a[],int K,int alen);
+
+void swap(int *x,int *y);
+int FindKthLargest2(int a[],int K,int Left,int Right);
 /*基于问题的分解*/
 int main(){
-    int a[]={1,3,3,4};
+    int a[]={1,2,3,4};
     int K,len;
     len=sizeof(a)/sizeof(int);
     int *p;
@@ -19,6 +22,7 @@ int main(){
         K=(len+1)/2; 
         printf("%d",FindKthLargest(p,K,len));
     }
+    //printf("\n%d",FindKthLargest2(p,(len+1)/2,0,len-1));
     //sizeof(a)/sizeof(int)取数组长度
     return 0;
 }
@@ -63,5 +67,39 @@ int FindKthLargest(int a[],int K,int alen){//-1表示失败
     // }
     free(s1);
     free(s2);
+    return ret;
+}
+void swap(int *x,int *y){
+    int tmp;
+    tmp=*x;
+    *x=*y;
+    *y=tmp;
+}
+int FindKthLargest2(int a[],int K,int Left,int Right){//-1表示失败
+    int ret=-1;
+    int e=a[Left];//选取基准数字
+    int L=Left,R=Right;
+
+    while(1){
+        while((Left<=Right)&&(e<=a[Left])){
+            Left++;
+        }
+        while((Left<Right)&&(e>a[Left])){
+            Right--;
+        }
+        if(Left<Right){
+            swap(&a[Left],&a[Right]);
+        }else{
+            break;
+        }
+    }
+    swap(&a[Left-1],&a[L]);
+    if((Left-L-1)>=K){
+        return FindKthLargest2(a,K,L,Left-2);
+    }else if((Left-L-1)<K-1){
+        return FindKthLargest2(a,K-(Left-L-1)-1,Left,R);
+    }else{
+        return e;
+    }
     return ret;
 }
