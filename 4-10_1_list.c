@@ -1,4 +1,3 @@
-//修改自https://www.cnblogs.com/littleLittleTiger/p/11487235.html
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node
