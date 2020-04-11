@@ -31,3 +31,27 @@ int main()
 }
 
 /* 你的代码将被嵌在这里 */
+bool Insert( List L, ElementType X ){
+    bool ret=false;
+    if(L->Last+1!=MAXSIZE){
+        for(int i=0;i<=L->Last;i++){
+            if(L->Data[i]==X){
+                break;
+            }else if(L->Data[i]<X){
+               for(int j=L->Last;j>=i;j--){
+                    L->Data[j+1]=L->Data[j];
+                }
+                L->Data[i]=X;
+                L->Last++;
+                ret=true;
+                break;
+            }else if(L->Last==i&&L->Data[i]>X){
+                L->Data[++(L->Last)]=X;
+                ret=true;
+                break;
+            }
+        }
+    }
+
+    return ret;
+}
