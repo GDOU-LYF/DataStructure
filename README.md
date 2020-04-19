@@ -2,7 +2,7 @@
 
 ## 第一章 概论 (算法和复杂度)
 
-![image-20200407181812695](../../Users/SST石子/AppData/Roaming/Typora/typora-user-images/image-20200407181812695.png)
+![image-20200407181812695](picture/README/image-20200407181812695.png)
 
 printN1循环 printN2递归(在100000内存溢出,程序异常退出)
 
@@ -16,3 +16,38 @@ printN1循环 printN2递归(在100000内存溢出,程序异常退出)
 
 ## 第二章 链表,基础语法,递归
 
+## 第三章 线性,多重链,广义表 堆栈 队列
+
+
+
+##### 堆栈(线性,链式):
+
+定义
+
+插入:入栈
+
+删除:出栈
+
+栈空 top=-1
+
+一个元素 top=0
+
+栈满 top=Maxsize-1
+
+##### 利用数组实现两个堆栈
+
+##### 链式:栈顶指针Top在链表头上.
+
+[enum利用-菜鸟教程]: https://www.runoob.com/cprogramming/c-enum.html
+
+<img src="picture/README/image-20200419112536014.png" alt="image-20200419112536014" style="zoom: 67%;" />
+
+[C 标准库 - <ctype.h>]: https://www.runoob.com/cprogramming/c-standard-library-ctype-h.html
+
+##### isdigit():判断是否为数字
+
+
+
+###  atof()  <stdio.h>:
+
+###### C 库函数 **double atof(const char \*str)** 把参数 **str** 所指向的字符串转换为一个浮点数（类型为 double 型）。
