@@ -46,7 +46,9 @@ printN1循环 printN2递归(在100000内存溢出,程序异常退出)
 
 ##### isdigit():判断是否为数字
 
+##### isalpha():判断是否为字母
 
+toupper():**将小写转换为大写字母**
 
 ###  atof()  <stdio.h>:
 
