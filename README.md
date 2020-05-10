@@ -1,5 +1,9 @@
 # 数据结构
 
+[TOC]
+
+
+
 ## 第一章 概论 (算法和复杂度)
 
 ![image-20200407181812695](picture/README/image-20200407181812695.png)
@@ -20,7 +24,7 @@ printN1循环 printN2递归(在100000内存溢出,程序异常退出)
 
 
 
-##### 堆栈(线性,链式):
+### 堆栈(线性,链式):
 
 定义
 
@@ -34,9 +38,11 @@ printN1循环 printN2递归(在100000内存溢出,程序异常退出)
 
 栈满 top=Maxsize-1
 
-##### 利用数组实现两个堆栈
+**利用数组实现两个堆栈**
 
-##### 链式:栈顶指针Top在链表头上.
+##### **链式:栈顶指针Top在链表头上.**
+
+### C函数
 
 [enum利用-菜鸟教程]: https://www.runoob.com/cprogramming/c-enum.html
 
@@ -50,6 +56,17 @@ printN1循环 printN2递归(在100000内存溢出,程序异常退出)
 
 toupper():**将小写转换为大写字母**
 
-###  atof()  <stdio.h>:
+#####  **atof()  <stdio.h>:**
 
-###### C 库函数 **double atof(const char \*str)** 把参数 **str** 所指向的字符串转换为一个浮点数（类型为 double 型）。
+C 库函数 **double atof(const char \*str)** 把参数 **str** 所指向的字符串转换为一个浮点数（类型为 double 型）。
+
+
+
+### 队列:先进先出
+
+队列为空:Front=Rear
+
+队列中只有一个元素,Rear-Front=1
+
+队列满:Rear+1=Front(对于少用一个元素空间: (Rear+1)%数组长度=Front)
+
