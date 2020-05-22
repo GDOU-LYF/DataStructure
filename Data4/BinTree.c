@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define MAXSIZE 10
 typedef struct TNode *Position;
 typedef Position BinTree;
 typedef int ElementType;
@@ -62,11 +63,11 @@ struct QNode{
 };
 typedef PtrToQNode Queue;
 
-Queue CreateQueue(ElementType Maxsize){//队列创建
+Queue CreateQueue(){//队列创建
     Queue Q=(Queue)malloc(sizeof(struct QNode));
-    Q->Data=(BinTree *)malloc(Maxsize *sizeof(BinTree));
+    Q->Data=(BinTree *)malloc(sizeof(BinTree));
     Q->Front =Q->Rear=0;
-    Q->MaxSize=Maxsize;
+    Q->MaxSize=MAXSIZE;
     return Q;
 }
 
@@ -164,7 +165,47 @@ void InorderTraversal_B2(BinTree BT){//后序遍历
     }
 }
 //层序遍历
+void LevelorderTraversal(BinTree BT){ //层序遍历
+    Queue Q;
+    BinTree T;
+    if(!BT){
+        return ;
+    }
+    Q=CreateQueue();
+    AddQ(Q,BT);
+    while(!IsEmpty_Q(Q)){
+        T=DeleteQ(Q);
+        printf("%d",T->Data);
+        if(T->Left){
+            AddQ(Q,T->Left);
+        }
+        if(T->Right){
+            AddQ(Q,T->Right);
+        }
+    }
+}
 
+void PreorderPrintLeaves(BinTree BT){//叶结点
+    if(BT){
+        if(!BT->Left && !BT->Right){
+            printf("%d",BT->Data);
+        }
+        PreorderPrintLeaves(BT->Left);
+        PreorderPrintLeaves(BT->Right);
+    }
+}
+
+int GetHeight(BinTree BT){//树深度
+    int HL,HR,MaxH;
+    if(BT){
+        HL=GetHeight(BT->Left);
+        HR=GetHeight(BT->Right);
+        MaxH=HL>HR?HL:HR;
+        return(MaxH+1);//包含父结点
+    }else{
+        return 0;
+    }
+}
 
 int main(){
 
