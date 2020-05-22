@@ -46,3 +46,8 @@ ElementType DeleteQ(Queue Q){
         return Q->Data[Q->Front];
     }
 }
+int main(){
+
+
+    return 0;
+}
