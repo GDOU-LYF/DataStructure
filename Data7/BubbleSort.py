@@ -9,9 +9,10 @@ def Bubble_Sort(our_list):
 
 def main( ):
     our=list("125438976")
-    out=list()
-    for i in map(eval,our):
-        out.append(i)
+    #out=list()
+    out=list(map(eval,our))
+    # for i in map(eval,our):
+    #     out.append(i)
     print(out)
     print(Bubble_Sort(out))
     print(out)
