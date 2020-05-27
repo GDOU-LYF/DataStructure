@@ -7,7 +7,7 @@ int main(){
         ret+=1.0/i;
         i++;
     }
-    printf("%d",i);
+    printf("%d",i-1);
 
     return 0;    
 }
