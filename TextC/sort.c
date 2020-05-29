@@ -1,7 +1,7 @@
 #include <stdio.h>
 void sort(int a[],int N){
     int flag=0;//定义未发生交换的情况
-    for(int i=10-1;i>=0;i--){
+    for(int i=N-1;i>=0;i--){//纠正错误
         for (int j=0;j<i;j++){
             if(a[j]>a[j+1]){
                 int temp=a[j];
