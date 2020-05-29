@@ -1,5 +1,5 @@
 #include <stdio.h>
-void InsertionSort(int a[],int N){
+void InsertionSort(int a[],int N){//插入排序
     int p,i;
     int tmp;
     for (p=1;p<N;p++){
@@ -11,7 +11,7 @@ void InsertionSort(int a[],int N){
     }
 }
 
-void BubbleSort(int a[],int N){
+void BubbleSort(int a[],int N){//冒泡排序
     int p,i;
     int flag;
     for(p=N-1;p>=0;p--){
@@ -29,7 +29,7 @@ void BubbleSort(int a[],int N){
         }
     }
 }
-void BubbleSort2(int a[],int N){
+void BubbleSort2(int a[],int N){//冒泡排序理解型
     int i,j;
     int flag;
     for(i=0;i<N-1;i++){
