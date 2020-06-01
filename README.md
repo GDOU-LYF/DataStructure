@@ -176,13 +176,15 @@ void sort(int a[],int n){
 	int temp;
 	for (i=1;i<n;i++){
 		temp=a[i];
-		for(j=i;j>0&&a[j-1]>temp;i--){
-			a[j]=a[j-1];//移位置,向前移
+		for(j=i;j>0&&a[j-1]>temp;j--){
+			a[j]=a[j-1];//移动位置,从后面移到小于temp的位置,为了temp(p位置的数字移动)插入做准备
 		}
 		a[j]=temp;
 	}
 }
 ```
+
+![img](https://pic3.zhimg.com/v2-91b76e8e4dab9b0cad9a017d7dd431e2_b.webp)
 
 ### 	冒泡排序
 

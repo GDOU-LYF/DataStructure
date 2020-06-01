@@ -49,7 +49,33 @@ void BubbleSort2(int a[],int N){//冒泡排序理解型
 }
 int main(){
     int a[]={44,12,59,36,62,43,94,7,35,52,85};
-    BubbleSort2(a,sizeof(a)/4);
+    //BubbleSort2(a,sizeof(a)/4);
+    // for(int i=0;i<sizeof(a)/4;i++){ //选择排序
+    //     for (int j=i;j<sizeof(a)/4;j++){
+    //         if(a[i]>a[j]){
+    //             int temp=a[i];
+    //             a[i]=a[j];
+    //             a[j]=temp;
+    //         }
+    //     }
+    // }
+
+    int flag=0;//判断是否进行了交换
+    for(int i=sizeof(a)/4-1;i>=0;i--){
+        flag=0;
+        for(int j=0;j<sizeof(a)/4;j++){
+            if (a[j]>a[j+1]){
+                int temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+                flag=1;
+            }
+        }
+        if(flag==0){
+            break;
+        }
+    }
+    
     for (int i=0;i<sizeof(a)/4;i++){
         printf("%d\t",a[i]);
     }
